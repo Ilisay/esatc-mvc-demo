@@ -1,0 +1,54 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:91:p, par l:::p {comp label3:::p::p, comp label2:::p::p, comp userTextField:::::x, comp label1::l:::x, comp emailTextField::l:::x, comp pass1TextField::l:::x, comp pass2TextField::l:::x}, space ::91:x}, seq t {space ::134:x, comp registerButton:::p:130:p, space :p:134:p}}"
+			"$verticalGroup": "par l {seq l {space :p:123:p, comp userTextField:::::p, space :::p, comp label1:::p::p, space :::p, comp emailTextField:::p::p, space :::p, comp label2:::p::p, space :::p, comp pass1TextField:::p::p, space :::p, comp pass2TextField:::p::p, space :::p, comp label3:::p::p, space s:::p, comp registerButton:::p::p, space ::99:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"title": "Register User"
+			"resizable": false
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "userTextField"
+				"text": "username"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "emailTextField"
+				"text": "email"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "pass1TextField"
+				"text": "password"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "pass2TextField"
+				"text": "confirm password"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "registerButton"
+				"text": "Register"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Username must contain alphanumeric characters"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 2, -2, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Please enter a valid email address"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 2, -2, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Passwords must match"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 2, -2, false )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 500 )
+		} )
+	}
+}
