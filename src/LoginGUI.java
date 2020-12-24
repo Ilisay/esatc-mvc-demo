@@ -1,3 +1,4 @@
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 /*
@@ -12,6 +13,18 @@ import javax.swing.GroupLayout;
 public class LoginGUI extends JFrame {
     public LoginGUI() {
         initComponents();
+    }
+
+    private void loginButtonMouseClicked(MouseEvent e) {
+        InfoGUI infoFrame = new InfoGUI(this);
+        infoFrame.setVisible(true);
+        this.setVisible(false);
+    }
+
+    private void registerButtonMouseClicked(MouseEvent e) {
+        RegisterGUI registerFrame = new RegisterGUI(this);
+        registerFrame.setVisible(true);
+        this.setVisible(false);
     }
 
     private void initComponents() {
@@ -33,9 +46,21 @@ public class LoginGUI extends JFrame {
 
         //---- loginButton ----
         loginButton.setText("Login");
+        loginButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                loginButtonMouseClicked(e);
+            }
+        });
 
         //---- registerButton ----
         registerButton.setText("Register");
+        registerButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                registerButtonMouseClicked(e);
+            }
+        });
 
         //---- passField ----
         passField.setText("password");

@@ -8,10 +8,11 @@ new FormModel {
 			"$verticalGroup": "par l {seq l {space :p:101:p, comp userTextField:::::p, space :::p, comp label1:::p::p, space :::p, comp emailTextField:::p::p, space :::p, comp label2:::p::p, space :::p, comp passwordField1:::p::p, space :::p, comp label4:::p::p, space :::p, comp passwordField2:::p::p, space :::p, comp label3:::p::p, space s:::p, comp registerButton:::p::p, space ::145:x}}"
 		} ) {
 			name: "this"
-			"defaultCloseOperation": 3
+			"defaultCloseOperation": 2
 			"title": "Register User"
 			"resizable": false
 			"$locationPolicy": 1
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "thisWindowClosed", true ) )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "userTextField"
 				"text": "username"

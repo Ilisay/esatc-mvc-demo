@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 /*
@@ -6,13 +7,17 @@ import javax.swing.GroupLayout;
  */
 
 
-
 /**
  * @author Adrian Ilisei
  */
 public class InfoGUI extends JFrame {
-    public InfoGUI() {
+    public InfoGUI(JFrame parent) {
+        this.parent = parent;
         initComponents();
+    }
+
+    private void thisWindowClosed(WindowEvent e) {
+        parent.setVisible(true);
     }
 
     private void initComponents() {
@@ -20,12 +25,17 @@ public class InfoGUI extends JFrame {
         // Generated using JFormDesigner Evaluation license - Adrian Ilisei
         welcomeLabel = new JLabel();
         emailLabel = new JLabel();
-        button1 = new JButton();
 
         //======== this ========
         setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Welcome");
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                thisWindowClosed(e);
+            }
+        });
         var contentPane = getContentPane();
 
         //---- welcomeLabel ----
@@ -33,9 +43,6 @@ public class InfoGUI extends JFrame {
 
         //---- emailLabel ----
         emailLabel.setText("Your e-mail address is: <EMAIL_ADDRESS>");
-
-        //---- button1 ----
-        button1.setText("Log out");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -46,25 +53,18 @@ public class InfoGUI extends JFrame {
                     .addComponent(emailLabel)
                     .addGap(77, 77, 77))
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(125, 125, 125)
-                            .addComponent(welcomeLabel))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(161, 161, 161)
-                            .addComponent(button1)))
+                    .addGap(125, 125, 125)
+                    .addComponent(welcomeLabel)
                     .addContainerGap(125, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(180, 180, 180)
+                    .addGap(215, 215, 215)
                     .addComponent(welcomeLabel)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(emailLabel)
-                    .addGap(18, 18, 18)
-                    .addComponent(button1)
-                    .addContainerGap(206, Short.MAX_VALUE))
+                    .addContainerGap(215, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(null);
@@ -75,6 +75,6 @@ public class InfoGUI extends JFrame {
     // Generated using JFormDesigner Evaluation license - Adrian Ilisei
     private JLabel welcomeLabel;
     private JLabel emailLabel;
-    private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private JFrame parent;
 }

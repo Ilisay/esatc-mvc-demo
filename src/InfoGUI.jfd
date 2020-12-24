@@ -4,14 +4,15 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::77:x, comp emailLabel:::p::p, space :p:77:p}, seq {par l {seq {space :p:125:p, comp welcomeLabel:::p::p}, seq l {space :p:161:p, comp button1:::p::p}}, space ::125:x}}"
-			"$verticalGroup": "par l {seq l {space :p:180:p, comp welcomeLabel:::p::p, space :::p, comp emailLabel:::p::p, space s:::p, comp button1:::p::p, space ::206:x}}"
+			"$horizontalGroup": "par l {seq t {space ::77:x, comp emailLabel:::p::p, space :p:77:p}, seq {space :p:125:p, comp welcomeLabel:::p::p, space ::125:x}}"
+			"$verticalGroup": "par l {seq l {space :p:215:p, comp welcomeLabel:::p::p, space :::p, comp emailLabel:::p::p, space ::215:x}}"
 		} ) {
 			name: "this"
 			"resizable": false
 			"$locationPolicy": 1
-			"defaultCloseOperation": 3
+			"defaultCloseOperation": 2
 			"title": "Welcome"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "thisWindowClosed", true ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "welcomeLabel"
 				"text": "Welcome, <USER_NAME>!"
@@ -19,10 +20,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "emailLabel"
 				"text": "Your e-mail address is: <EMAIL_ADDRESS>"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
-				"text": "Log out"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

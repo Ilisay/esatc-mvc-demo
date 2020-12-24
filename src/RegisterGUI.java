@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 /*
@@ -6,13 +7,17 @@ import javax.swing.GroupLayout;
  */
 
 
-
 /**
  * @author Adrian Ilisei
  */
 public class RegisterGUI extends JFrame {
-    public RegisterGUI() {
+    public RegisterGUI(JFrame parent) {
+        this.parent = parent;
         initComponents();
+    }
+
+    private void thisWindowClosed(WindowEvent e) {
+        parent.setVisible(true);
     }
 
     private void initComponents() {
@@ -29,9 +34,15 @@ public class RegisterGUI extends JFrame {
         passwordField2 = new JPasswordField();
 
         //======== this ========
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Register User");
         setResizable(false);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                thisWindowClosed(e);
+            }
+        });
         var contentPane = getContentPane();
 
         //---- userTextField ----
@@ -120,4 +131,5 @@ public class RegisterGUI extends JFrame {
     private JPasswordField passwordField1;
     private JPasswordField passwordField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private JFrame parent;
 }
