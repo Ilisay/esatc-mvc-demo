@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:91:p, par l:::p {comp label3:::p::p, comp label2:::p::p, comp userTextField:::::x, comp label1::l:::x, comp emailTextField::l:::x, comp pass1TextField::l:::x, comp pass2TextField::l:::x}, space ::91:x}, seq t {space ::134:x, comp registerButton:::p:130:p, space :p:134:p}}"
-			"$verticalGroup": "par l {seq l {space :p:123:p, comp userTextField:::::p, space :::p, comp label1:::p::p, space :::p, comp emailTextField:::p::p, space :::p, comp label2:::p::p, space :::p, comp pass1TextField:::p::p, space :::p, comp pass2TextField:::p::p, space :::p, comp label3:::p::p, space s:::p, comp registerButton:::p::p, space ::99:x}}"
+			"$horizontalGroup": "par l {seq {space :p:91:p, par l:::p {comp label2:::p::p, comp userTextField:::::x, comp label1::l:::x, comp emailTextField::l:::x, comp passwordField1::l:::x, comp label4::l:p::p, comp passwordField2:::::x, comp label3::l:p::p}, space ::91:x}, seq t {space ::134:x, comp registerButton:::p:130:p, space :p:134:p}}"
+			"$verticalGroup": "par l {seq l {space :p:101:p, comp userTextField:::::p, space :::p, comp label1:::p::p, space :::p, comp emailTextField:::p::p, space :::p, comp label2:::p::p, space :::p, comp passwordField1:::p::p, space :::p, comp label4:::p::p, space :::p, comp passwordField2:::p::p, space :::p, comp label3:::p::p, space s:::p, comp registerButton:::p::p, space ::101:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -18,14 +18,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "emailTextField"
 				"text": "email"
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "pass1TextField"
-				"text": "password"
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "pass2TextField"
-				"text": "confirm password"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "registerButton"
@@ -45,6 +37,17 @@ new FormModel {
 				name: "label3"
 				"text": "Passwords must match"
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 2, -2, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Please enter a password"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 2, -2, false )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField1"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField2"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

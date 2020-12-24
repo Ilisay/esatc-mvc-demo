@@ -1,0 +1,34 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space ::94:x, par l:::p {comp userTextField::::216:x, comp loginButton::l::216:x, comp registerButton::::216:x, comp passField::::216:x}, space :p:88:p}}"
+			"$verticalGroup": "par l {seq t {space :p:159:p, comp userTextField:::p::p, space :::p, comp passField:::p::p, space :p:28:p, comp loginButton:::p::p, space :::p, comp registerButton:::p::p, space ::149:x}}"
+		} ) {
+			name: "this"
+			"resizable": false
+			"title": "Login"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "userTextField"
+				"text": "username or email"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "loginButton"
+				"text": "Login"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "registerButton"
+				"text": "Register"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passField"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 500 )
+		} )
+	}
+}

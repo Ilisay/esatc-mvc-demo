@@ -20,12 +20,13 @@ public class RegisterGUI extends JFrame {
         // Generated using JFormDesigner Evaluation license - Adrian Ilisei
         userTextField = new JTextField();
         emailTextField = new JTextField();
-        pass1TextField = new JTextField();
-        pass2TextField = new JTextField();
         registerButton = new JButton();
         label1 = new JLabel();
         label2 = new JLabel();
         label3 = new JLabel();
+        label4 = new JLabel();
+        passwordField1 = new JPasswordField();
+        passwordField2 = new JPasswordField();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -38,12 +39,6 @@ public class RegisterGUI extends JFrame {
 
         //---- emailTextField ----
         emailTextField.setText("email");
-
-        //---- pass1TextField ----
-        pass1TextField.setText("password");
-
-        //---- pass2TextField ----
-        pass2TextField.setText("confirm password");
 
         //---- registerButton ----
         registerButton.setText("Register");
@@ -60,6 +55,10 @@ public class RegisterGUI extends JFrame {
         label3.setText("Passwords must match");
         label3.setFont(label3.getFont().deriveFont(label3.getFont().getStyle() | Font.ITALIC, label3.getFont().getSize() - 2f));
 
+        //---- label4 ----
+        label4.setText("Please enter a password");
+        label4.setFont(label4.getFont().deriveFont(label4.getFont().getStyle() | Font.ITALIC, label4.getFont().getSize() - 2f));
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -67,13 +66,14 @@ public class RegisterGUI extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(91, 91, 91)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(label3)
                         .addComponent(label2)
                         .addComponent(userTextField)
                         .addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(emailTextField)
-                        .addComponent(pass1TextField)
-                        .addComponent(pass2TextField))
+                        .addComponent(passwordField1)
+                        .addComponent(label4)
+                        .addComponent(passwordField2)
+                        .addComponent(label3))
                     .addContainerGap(91, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap(134, Short.MAX_VALUE)
@@ -83,7 +83,7 @@ public class RegisterGUI extends JFrame {
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(123, 123, 123)
+                    .addGap(101, 101, 101)
                     .addComponent(userTextField, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(label1)
@@ -92,14 +92,16 @@ public class RegisterGUI extends JFrame {
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(label2)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(pass1TextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(pass2TextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label4)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(passwordField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(label3)
                     .addGap(18, 18, 18)
                     .addComponent(registerButton)
-                    .addContainerGap(99, Short.MAX_VALUE))
+                    .addContainerGap(101, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -110,11 +112,12 @@ public class RegisterGUI extends JFrame {
     // Generated using JFormDesigner Evaluation license - Adrian Ilisei
     private JTextField userTextField;
     private JTextField emailTextField;
-    private JTextField pass1TextField;
-    private JTextField pass2TextField;
     private JButton registerButton;
     private JLabel label1;
     private JLabel label2;
     private JLabel label3;
+    private JLabel label4;
+    private JPasswordField passwordField1;
+    private JPasswordField passwordField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
