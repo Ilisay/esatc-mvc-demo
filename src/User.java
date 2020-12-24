@@ -20,6 +20,10 @@ public class User implements Serializable {
         setEmailAddress(emailAddress);
     }
 
+    public User(User user) {
+        this(user.getUserName(), user.getPassWord(), user.getEmailAddress());
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -32,15 +36,15 @@ public class User implements Serializable {
         return emailAddress;
     }
 
-    public void setUserName(String userName){
+    public void setUserName(String userName) {
         this.userName = new String(userName);
     }
 
-    public void setPassword(String passWord){
+    public void setPassword(String passWord) {
         this.passWord = new String(passWord);
     }
 
-    public void setEmailAddress(String emailAddress){
+    public void setEmailAddress(String emailAddress) {
         this.emailAddress = new String(emailAddress);
     }
 }
