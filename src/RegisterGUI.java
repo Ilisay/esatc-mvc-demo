@@ -104,7 +104,7 @@ public class RegisterGUI extends JFrame {
                     .addContainerGap(145, Short.MAX_VALUE))
         );
         pack();
-        setLocationRelativeTo(getOwner());
+        setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

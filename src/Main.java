@@ -1,7 +1,7 @@
 public class Main {
 
     private static void testUser() {
-        User user = new User("ilisay", "123456qwerty", "123456qwerty");
+        User user = new User("test_user", "test_pass", "test@pass.com");
         Controller ctrl = Controller.getInstance(user);
         System.out.println("User is not created yet");
         if (ctrl.userExists()) {
@@ -20,7 +20,7 @@ public class Main {
         } else {
             System.out.println("User " + user.getUserName() + " doesn't exist");
         }
-        if (ctrl.getUser("ilisay")) {
+        if (ctrl.getUser("test_user")) {
             System.out.println("User " + user.getUserName() + " was retrieved");
         } else {
             System.out.println("User couldn't be retrieved");
@@ -40,7 +40,7 @@ public class Main {
 
     public static void main(String[] args) {
         testUser();
-        RegisterGUI frame = new RegisterGUI();
+        LoginGUI frame = new LoginGUI();
         frame.setVisible(true);
     }
 }

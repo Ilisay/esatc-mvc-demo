@@ -29,13 +29,16 @@ public class LoginGUI extends JFrame {
         var contentPane = getContentPane();
 
         //---- userTextField ----
-        userTextField.setText("username or email");
+        userTextField.setText("username");
 
         //---- loginButton ----
         loginButton.setText("Login");
 
         //---- registerButton ----
         registerButton.setText("Register");
+
+        //---- passField ----
+        passField.setText("password");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -61,10 +64,10 @@ public class LoginGUI extends JFrame {
                     .addComponent(loginButton)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(registerButton)
-                    .addContainerGap(149, Short.MAX_VALUE))
+                    .addContainerGap(177, Short.MAX_VALUE))
         );
         pack();
-        setLocationRelativeTo(getOwner());
+        setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

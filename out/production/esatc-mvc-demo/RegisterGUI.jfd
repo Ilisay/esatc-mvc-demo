@@ -11,6 +11,7 @@ new FormModel {
 			"defaultCloseOperation": 3
 			"title": "Register User"
 			"resizable": false
+			"$locationPolicy": 1
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "userTextField"
 				"text": "username"
