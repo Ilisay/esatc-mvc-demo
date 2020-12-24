@@ -20,6 +20,11 @@ public class Main {
         } else {
             System.out.println("User " + user.getUserName() + " doesn't exist");
         }
+        if (ctrl.getUser("ilisay")) {
+            System.out.println("User " + user.getUserName() + " was retrieved");
+        } else {
+            System.out.println("User couldn't be retrieved");
+        }
         if (ctrl.deleteUser()) {
             System.out.println("User was removed");
         } else {
@@ -35,5 +40,7 @@ public class Main {
 
     public static void main(String[] args) {
         testUser();
+        RegisterGUI frame = new RegisterGUI();
+        frame.setVisible(true);
     }
 }

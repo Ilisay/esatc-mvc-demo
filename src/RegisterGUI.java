@@ -74,7 +74,7 @@ public class RegisterGUI extends JFrame {
                         .addComponent(label4)
                         .addComponent(passwordField2)
                         .addComponent(label3))
-                    .addContainerGap(91, Short.MAX_VALUE))
+                    .addContainerGap(65, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap(134, Short.MAX_VALUE)
                     .addComponent(registerButton, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
@@ -101,7 +101,7 @@ public class RegisterGUI extends JFrame {
                     .addComponent(label3)
                     .addGap(18, 18, 18)
                     .addComponent(registerButton)
-                    .addContainerGap(101, Short.MAX_VALUE))
+                    .addContainerGap(145, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
