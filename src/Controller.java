@@ -4,21 +4,21 @@ import java.io.*;
  * @author Adrian Ilisei
  */
 public class Controller {
-    private static Controller controller = null;
-    private User model;
+    private static User model;
 
-    private Controller(User model) {
-        this.model = new User(model);
+    public String getUserName(){
+        return model.getUserName();
     }
 
-    public static Controller getInstance(User model) {
-        if (controller == null) {
-            controller = new Controller(model);
-        }
-        return controller;
+    public String getEmailAddress(){
+        return model.getEmailAddress();
     }
 
-    public boolean saveUser() {
+    public static boolean saveUser() {
+        return saveUser(model);
+    }
+
+    public static boolean saveUser(User model) {
         try {
             FileOutputStream file = new FileOutputStream(model.getUserName());
             ObjectOutputStream out = new ObjectOutputStream(file);
@@ -31,7 +31,7 @@ public class Controller {
         }
     }
 
-    public boolean getUser(String userName) {
+    public static boolean readUser(String userName) {
         try {
             FileInputStream file = new FileInputStream(userName);
             ObjectInputStream object = new ObjectInputStream(file);
@@ -44,14 +44,12 @@ public class Controller {
         }
     }
 
-    public boolean deleteUser() {
-        File file = new File(model.getUserName());
-        model = null;
+    public static boolean deleteUser(String userName) {
+        File file = new File(userName);
         return file.delete();
     }
 
-    public boolean userExists() {
-        File file = new File(model.getUserName());
-        return (file.exists() && !file.isDirectory());
+    public static boolean checkPasswords(String passWord) {
+        return (model.getPassWord().compareTo(passWord) == 0);
     }
 }
