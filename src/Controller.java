@@ -5,17 +5,27 @@ import java.io.*;
  */
 public class Controller {
     private enum errors {
+        eTAKEN_ERROR,
         eSAVE_ERROR,
         eREAD_ERROR,
         eDELETE_ERROR,
+        eUSERNAME_ERROR,
+        eEMAIL_ERROR,
         ePASSWORD_ERROR,
+        eREGISTER_SUCCESS,
+        eLOGIN_SUCCESS,
         eNO_ERROR
     }
 
-    private static final String[] errorMessages = {"User information could not be saved.",
+    private static final String[] errorMessages = {"The username is already taken.",
+            "User information could not be saved.",
             "The user does not exist.",
             "User information could not be deleted.",
+            "Username format is not valid.",
+            "E-Mail format is not valid.",
             "Wrong password entered.",
+            "User successfully registered.",
+            "User successfully logged in.",
             null};
 
     private static User model;
@@ -44,7 +54,7 @@ public class Controller {
             out.writeObject(model);
             out.close();
             file.close();
-            errorStatus = errors.eNO_ERROR;
+            errorStatus = errors.eREGISTER_SUCCESS;
             return true;
         } catch (IOException e) {
             errorStatus = errors.eSAVE_ERROR;
@@ -59,7 +69,7 @@ public class Controller {
             model = new User((User) object.readObject());
             file.close();
             object.close();
-            errorStatus = errors.eNO_ERROR;
+            errorStatus = errors.eLOGIN_SUCCESS;
             return true;
         } catch (IOException | ClassNotFoundException e) {
             errorStatus = errors.eREAD_ERROR;
@@ -76,6 +86,41 @@ public class Controller {
             errorStatus = errors.eNO_ERROR;
         }
         return bFileWasDeleted;
+    }
+
+    public static boolean checkUserName(String userName) {
+        File file = new File(userName);
+        if (file.exists() && !file.isDirectory()) {
+            errorStatus = errors.eTAKEN_ERROR;
+            return false;
+        }
+        boolean bUserNameIsValid = userName.matches("[A-Za-z0-9]+");
+        if (!bUserNameIsValid) {
+            errorStatus = errors.eUSERNAME_ERROR;
+        } else {
+            errorStatus = errors.eNO_ERROR;
+        }
+        return bUserNameIsValid;
+    }
+
+    public static boolean checkEmailAddress(String emailAddress) {
+        boolean bEmailIsValid = emailAddress.matches("^(.+)@(.+)$");
+        if (!bEmailIsValid) {
+            errorStatus = errors.eEMAIL_ERROR;
+        } else {
+            errorStatus = errors.eNO_ERROR;
+        }
+        return bEmailIsValid;
+    }
+
+    public static boolean checkPasswords(String passWord1, String passWord2) {
+        boolean bPasswordsMatch = (passWord1.compareTo(passWord2) == 0);
+        if (!bPasswordsMatch) {
+            errorStatus = errors.ePASSWORD_ERROR;
+        } else {
+            errorStatus = errors.eNO_ERROR;
+        }
+        return bPasswordsMatch;
     }
 
     public static boolean checkPasswords(String passWord) {

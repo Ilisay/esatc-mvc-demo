@@ -19,11 +19,12 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "emailTextField"
-				"text": "email"
+				"text": "email@domain"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "registerButton"
 				"text": "Register"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "registerButtonMouseClicked", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
@@ -47,9 +48,11 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField1"
+				"text": "password"
 			} )
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField2"
+				"text": "password"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

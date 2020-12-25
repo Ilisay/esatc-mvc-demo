@@ -20,6 +20,22 @@ public class RegisterGUI extends JFrame {
         parent.setVisible(true);
     }
 
+    private void registerButtonMouseClicked(MouseEvent e) {
+        String userName = userTextField.getText();
+        if (Controller.checkUserName(userName)) {
+            String emailAddress = emailTextField.getText();
+            if (Controller.checkEmailAddress(emailAddress)) {
+                String passWord1 = passwordField1.getText();
+                String passWord2 = passwordField2.getText();
+                if (Controller.checkPasswords(passWord1, passWord2)) {
+                    User user = new User(userName, passWord1, emailAddress);
+                    Controller.saveUser(user);
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(this, Controller.getError());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Adrian Ilisei
@@ -49,10 +65,16 @@ public class RegisterGUI extends JFrame {
         userTextField.setText("username");
 
         //---- emailTextField ----
-        emailTextField.setText("email");
+        emailTextField.setText("email@domain");
 
         //---- registerButton ----
         registerButton.setText("Register");
+        registerButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                registerButtonMouseClicked(e);
+            }
+        });
 
         //---- label1 ----
         label1.setText("Username must contain alphanumeric characters");
@@ -69,6 +91,12 @@ public class RegisterGUI extends JFrame {
         //---- label4 ----
         label4.setText("Please enter a password");
         label4.setFont(label4.getFont().deriveFont(label4.getFont().getStyle() | Font.ITALIC, label4.getFont().getSize() - 2f));
+
+        //---- passwordField1 ----
+        passwordField1.setText("password");
+
+        //---- passwordField2 ----
+        passwordField2.setText("password");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
