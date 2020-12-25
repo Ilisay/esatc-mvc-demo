@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::77:x, comp emailLabel:::p::p, space :p:77:p}, seq {space :p:125:p, comp welcomeLabel:::p::p, space ::125:x}}"
-			"$verticalGroup": "par l {seq l {space :p:215:p, comp welcomeLabel:::p::p, space :::p, comp emailLabel:::p::p, space ::215:x}}"
+			"$horizontalGroup": "par l {seq t {space ::77:x, comp emailLabel:::p::p, space :p:77:p}, seq {space :p:125:p, comp userLabel:::p::p, space ::125:x}}"
+			"$verticalGroup": "par l {seq l {space :p:215:p, comp userLabel:::p::p, space :::p, comp emailLabel:::p::p, space ::215:x}}"
 		} ) {
 			name: "this"
 			"resizable": false
@@ -14,7 +14,7 @@ new FormModel {
 			"title": "Welcome"
 			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "thisWindowClosed", true ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "welcomeLabel"
+				name: "userLabel"
 				"text": "Welcome, <USER_NAME>!"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {

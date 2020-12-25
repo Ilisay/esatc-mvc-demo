@@ -6,7 +6,6 @@ import javax.swing.GroupLayout;
  */
 
 
-
 /**
  * @author Adrian Ilisei
  */
@@ -16,9 +15,17 @@ public class LoginGUI extends JFrame {
     }
 
     private void loginButtonMouseClicked(MouseEvent e) {
-        InfoGUI infoFrame = new InfoGUI(this);
-        infoFrame.setVisible(true);
-        this.setVisible(false);
+        if (Controller.readUser(userTextField.getText())) {
+            if (Controller.checkPasswords(passField.getText())) {
+                InfoGUI infoFrame = new InfoGUI(this);
+                infoFrame.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, Controller.getError());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, Controller.getError());
+        }
     }
 
     private void registerButtonMouseClicked(MouseEvent e) {
@@ -68,28 +75,28 @@ public class LoginGUI extends JFrame {
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(94, Short.MAX_VALUE)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(userTextField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                        .addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                        .addComponent(registerButton, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                        .addComponent(passField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
-                    .addGap(88, 88, 88))
+                contentPaneLayout.createParallelGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                .addContainerGap(94, Short.MAX_VALUE)
+                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(userTextField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                        .addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                        .addComponent(registerButton, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                        .addComponent(passField, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                                .addGap(88, 88, 88))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addGap(159, 159, 159)
-                    .addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(passField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(28, 28, 28)
-                    .addComponent(loginButton)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(registerButton)
-                    .addContainerGap(177, Short.MAX_VALUE))
+                contentPaneLayout.createParallelGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                .addGap(159, 159, 159)
+                                .addComponent(userTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(passField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(loginButton)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(registerButton)
+                                .addContainerGap(177, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(null);

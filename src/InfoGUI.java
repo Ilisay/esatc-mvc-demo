@@ -14,6 +14,14 @@ public class InfoGUI extends JFrame {
     public InfoGUI(JFrame parent) {
         this.parent = parent;
         initComponents();
+        StringBuilder string = new StringBuilder();
+        string.append("Greetings, ");
+        string.append(Controller.getUserName());
+        userLabel.setText(string.toString());
+        string = new StringBuilder();
+        string.append("Your e-mail address is ");
+        string.append(Controller.getEmailAddress());
+        emailLabel.setText(string.toString());
     }
 
     private void thisWindowClosed(WindowEvent e) {
@@ -23,7 +31,7 @@ public class InfoGUI extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Adrian Ilisei
-        welcomeLabel = new JLabel();
+        userLabel = new JLabel();
         emailLabel = new JLabel();
 
         //======== this ========
@@ -38,8 +46,8 @@ public class InfoGUI extends JFrame {
         });
         var contentPane = getContentPane();
 
-        //---- welcomeLabel ----
-        welcomeLabel.setText("Welcome, <USER_NAME>!");
+        //---- userLabel ----
+        userLabel.setText("Welcome, <USER_NAME>!");
 
         //---- emailLabel ----
         emailLabel.setText("Your e-mail address is: <EMAIL_ADDRESS>");
@@ -54,14 +62,14 @@ public class InfoGUI extends JFrame {
                     .addGap(77, 77, 77))
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(125, 125, 125)
-                    .addComponent(welcomeLabel)
+                    .addComponent(userLabel)
                     .addContainerGap(125, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(215, 215, 215)
-                    .addComponent(welcomeLabel)
+                    .addComponent(userLabel)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(emailLabel)
                     .addContainerGap(215, Short.MAX_VALUE))
@@ -73,7 +81,7 @@ public class InfoGUI extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Adrian Ilisei
-    private JLabel welcomeLabel;
+    private JLabel userLabel;
     private JLabel emailLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private JFrame parent;
